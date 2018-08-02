@@ -20,8 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self vertexs];
     [self config];
+    [self vertexs];
 }
 
 - (void)config {
@@ -35,29 +35,35 @@
     view.context = _context;
     view.drawableColorFormat = GLKViewDrawableColorFormatSRGBA8888;
     
-    
     [EAGLContext setCurrentContext:_context];
     glClearColor(0.1, 0.2, 0.3, 1.0);
+    
+    self.effect = [[GLKBaseEffect alloc] init];
 }
 
 - (void)vertexs {
     // 顶点
     GLfloat vertexs[] = {
-         0.0f,  1.0f, 0.0f, 1.0f,   // 顶部
-        -1.0f, -1.0f, 0.0f, 1.0f,   // 下左
-         1.0f, -1.0f, 0.0f, 1.0f    // 下右
+         0.0f,  1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f,   // 顶部
+        -1.0f, -1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f,   // 下左
+         1.0f, -1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f    // 下右
     };
     
     GLuint buffer;
     glGenBuffers(1, &buffer);
     glBindBuffer(GL_ARRAY_BUFFER, buffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertexs), vertexs, GL_STATIC_DRAW);
+    
     glEnableVertexAttribArray(GLKVertexAttribPosition);
-    glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 3, (GLfloat *)NULL + 0);
+    glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 7, (GLfloat *)NULL + 0);
+    
+    glEnableVertexAttribArray(GLKVertexAttribColor);
+    glVertexAttribPointer(GLKVertexAttribColor, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 7, (GLfloat *)NULL + 3);
+    glClearColor(0.1, 0.2, 0.3, 1.0);
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
-    glClearColor(1, 1, 1, 1);
+    glClearColor(0.5, 0.5, 0.5, 1.0);
     [_effect prepareToDraw];
     glDrawArrays(GL_TRIANGLES, 0, 3);
 }
