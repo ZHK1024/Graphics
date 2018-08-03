@@ -11,6 +11,9 @@
 		2435CFF5211420E0008D64CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2435CFF4211420E0008D64CC /* Assets.xcassets */; };
 		2435CFF8211420E0008D64CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2435CFF6211420E0008D64CC /* Main.storyboard */; };
 		2435CFFB211420E0008D64CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2435CFFA211420E0008D64CC /* main.m */; };
+		2435D00B2114233A008D64CC /* MetalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2435D00721142339008D64CC /* MetalView.m */; };
+		2435D00C2114233A008D64CC /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2435D00921142339008D64CC /* Shader.metal */; };
+		2435D00D2114233A008D64CC /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2435D00A2114233A008D64CC /* image.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,10 @@
 		2435CFF9211420E0008D64CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2435CFFA211420E0008D64CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2435CFFC211420E0008D64CC /* Metal_02_texture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Metal_02_texture.entitlements; sourceTree = "<group>"; };
+		2435D00721142339008D64CC /* MetalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalView.m; sourceTree = "<group>"; };
+		2435D00821142339008D64CC /* MetalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalView.h; sourceTree = "<group>"; };
+		2435D00921142339008D64CC /* Shader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
+		2435D00A2114233A008D64CC /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +63,10 @@
 			children = (
 				2435CFEE211420E0008D64CC /* AppDelegate.h */,
 				2435CFEF211420E0008D64CC /* AppDelegate.m */,
+				2435D00A2114233A008D64CC /* image.jpg */,
+				2435D00821142339008D64CC /* MetalView.h */,
+				2435D00721142339008D64CC /* MetalView.m */,
+				2435D00921142339008D64CC /* Shader.metal */,
 				2435CFF4211420E0008D64CC /* Assets.xcassets */,
 				2435CFF6211420E0008D64CC /* Main.storyboard */,
 				2435CFF9211420E0008D64CC /* Info.plist */,
@@ -125,6 +136,7 @@
 			files = (
 				2435CFF5211420E0008D64CC /* Assets.xcassets in Resources */,
 				2435CFF8211420E0008D64CC /* Main.storyboard in Resources */,
+				2435D00D2114233A008D64CC /* image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +147,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2435D00C2114233A008D64CC /* Shader.metal in Sources */,
 				2435CFFB211420E0008D64CC /* main.m in Sources */,
+				2435D00B2114233A008D64CC /* MetalView.m in Sources */,
 				2435CFF0211420E0008D64CC /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
