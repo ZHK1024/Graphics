@@ -58,6 +58,7 @@
     // 顶点坐标
     float vertexs[] = {
         // 前面四个顶点
+        // (x, y, z, w) (r, g, b, a)
         -0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 0.0f, 0.0f, 1.0f, // 上左 (0)
          0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 1.0f, 0.0f, 1.0f, // 上右 (1)
          0.5f, -0.5f,  0.5f,  1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 下左 (2)
@@ -113,7 +114,9 @@
     [encoder setRenderPipelineState:_pipelineState];
     [encoder setVertexBuffer:_vertexBuffer offset:0 atIndex:0];
     [encoder setVertexBuffer:_matrixBuffer offset:0 atIndex:1];
+    // 逆时针为正面
     [encoder setFrontFacingWinding:MTLWindingCounterClockwise];
+    // 背面剔除
     [encoder setCullMode:MTLCullModeBack];
     
     /*
