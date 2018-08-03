@@ -7,18 +7,30 @@
 //
 
 #include <metal_stdlib>
+
 using namespace metal;
 
 struct Vertex {
     float4 position [[position]];
+    float4 color;
 };
 
-vertex Vertex vertexFunc(constant Vertex *vertexs [[buffer(0)]],
-                         uint vid [[vertex_id]]) {
-    return vertexs[vid];
+struct Matrix {
+    float4x4 modelMatrix;
+};
+
+vertex Vertex vertexFun(constant Vertex *vertexs [[buffer(0)]],
+                        constant Matrix &matrix [[buffer(1)]],
+                        uint vid [[vertex_id]]) {
+    
+    Vertex in = vertexs[vid];
+    Vertex out;
+    out.position = matrix.modelMatrix * float4(in.position);
+    out.color = in.color;
+    
+    return out;
 }
 
-
-fragment float4 fragmentFunc(Vertex in [[stage_in]]) {
-    return float4(1);
+fragment float4 fragmentFun(Vertex in [[stage_in]]) {
+    return in.color;
 }
